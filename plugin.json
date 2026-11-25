@@ -1,0 +1,99 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "luminous-algorithms",
+  "version": "0.3.3",
+  "description": "Design, simulate, visualize, and analyze optical systems with physics-based ray tracing through Luminous Algorithms.",
+  "author": {
+    "name": "Luminous Algorithms GmbH",
+    "email": "info@luminous-algo.com"
+  },
+  "homepage": "https://luminous-algo.com",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Luminous Algorithms",
+        "shortDescription": "Agentic optical engineering",
+        "longDescription": "Create and edit optical simulation projects using conversational instructions. Explore example systems, configure light sources, geometry, materials, detectors, and cameras, run physics-based ray tracing, and inspect detector maps, camera images, and performance analyses. Requires a Luminous Algorithms account.",
+        "developerName": "Luminous Algorithms GmbH",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Help me create and simulate an optical system.",
+          "Show available optical simulation examples.",
+          "Analyze the detector results of my ray trace."
+        ],
+        "websiteURL": "https://luminous-algo.com/mcp/",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png",
+        "privacyPolicyURL": "https://app.luminous-algo.com/privacy",
+        "termsOfServiceURL": "https://app.luminous-algo.com/terms",
+        "supportURL": "https://luminous-algo.com/#contactform"
+      },
+      "review": {
+        "prompts": [
+          "What optical simulation examples are available?",
+          "Explain which source and detector types Luminous MCP supports.",
+          "Create a sample optical simulation using the minimal_flux example.",
+          "Run the minimal_flux example and summarize its detector results.",
+          "Plot the detector map for my completed ray-tracing project.",
+          "Show the optical elements in my current project.",
+          "Help me set up a lens and evaluate its optical efficiency."
+        ],
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read-only example discovery. Setup: reviewer signed in to a Luminous test account. Confirm the server offers the minimal_flux and led_lens fixtures. Expected tool: list_examples; no project changes.",
+              "prompt": "Show the optical simulation examples available and tell me which one is simplest.",
+              "tools_triggered": "list_examples",
+              "expected_behavior": "Use list_examples; show actual names and descriptions returned, identify minimal_flux only if available, do not invent examples or create a project."
+            },
+            {
+              "description": "Discover supported simulation capabilities. Setup: reviewer signed in; no project state required.",
+              "prompt": "Which light sources and detector types can this optical simulation service model?",
+              "tools_triggered": "describe_capabilities",
+              "expected_behavior": "Use describe_capabilities and summarize the returned supported types without claiming undocumented optical features."
+            },
+            {
+              "description": "Create a review-only project. Setup: example minimal_flux exists; test account has free project quota. Creating a project changes test account state.",
+              "prompt": "Create a new project from the minimal_flux example titled Review Minimal Flux and validate it.",
+              "tools_triggered": "list_examples, create_project_from_example",
+              "expected_behavior": "Use confirmed example name minimal_flux; call create_project_from_example with example=\"minimal_flux\", title=\"Review Minimal Flux\", validate=true after appropriate confirmation. Return the actual project ID and validation outcome, not an invented result."
+            },
+            {
+              "description": "Small ray-tracing test. Setup: Review Minimal Flux created by preceding case and reviewer permits the cost; only use a dedicated test account.",
+              "prompt": "Run my Review Minimal Flux example and report whether it completed, including the emitted and collected power.",
+              "tools_triggered": "list_projects, run_project, project_status",
+              "expected_behavior": "Identify the correct test project ID, confirm costs if applicable, call run_project on that ID, then poll project_status. Report actual success/failure and units from the returned result summary; do not fabricate or run if not authorized."
+            },
+            {
+              "description": "Detector result visualization on a finished test run. Setup: Review Minimal Flux is finished, folder and detector name are available from actual project/results.",
+              "prompt": "Show the detector power map for my completed Review Minimal Flux simulation and explain its peak and total.",
+              "tools_triggered": "list_projects, project_status, plot_detector_map",
+              "expected_behavior": "Resolve actual finished project folder and detector name from prior results or project data; call plot_detector_map on the valid detector and present the returned image and value units. If the fixture has no plottable array, explain that rather than fabricate a plot."
+            }
+          ],
+          "negative": [
+            {
+              "description": "The plugin does not purchase physical goods. Expected: explain no purchasing or billing capability; invoke no Luminous MCP tools.",
+              "prompt": "Buy a plano-convex lens for me and charge my credit card."
+            },
+            {
+              "description": "The plugin cannot access unrelated email accounts. Expected: explain the limitation and invoke no Luminous MCP tools.",
+              "prompt": "Open my Gmail inbox and send the latest optical simulation PDF to my colleagues."
+            },
+            {
+              "description": "The plugin controls simulations, not laboratory hardware. Expected: explain the limitation; no Luminous tools, simulation runs, or claims of physical hardware control.",
+              "prompt": "Turn on the laboratory laser power supply to 10 watts right now."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Luminous MCP offers a free trial. Paid simulation usage and subscriptions, if needed, are arranged and billed separately on the Luminous Algorithms website. The plugin does not provide checkout, initiate purchases, or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial public submission draft: optical modeling and ray-tracing MCP integration, company branding, external subscription disclosure, worldwide directory targeting, and review scenarios.",
+        "countries": []
+      }
+    }
+  }
+}

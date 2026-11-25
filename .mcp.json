@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "luminous-algorithms": {
+      "type": "streamable-http",
+      "url": "https://app.luminous-algo.com/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth"
+          }
+        }
+      }
+    }
+  }
+}

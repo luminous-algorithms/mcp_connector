@@ -1,0 +1,13 @@
+{
+  "name": "luminous-algorithms",
+  "version": "0.3.3",
+  "description": "Design, simulate, visualize, and analyze optical systems with physics-based ray tracing through Luminous Algorithms.",
+  "mcpServers": {
+    "luminous-algorithms": {
+      "httpUrl": "https://app.luminous-algo.com/mcp",
+      "oauth": {
+        "enabled": true
+      }
+    }
+  }
+}

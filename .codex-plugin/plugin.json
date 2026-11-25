@@ -1,0 +1,44 @@
+{
+  "interface": {
+    "displayName": "Luminous Algorithms",
+    "shortDescription": "Agentic optical engineering",
+    "longDescription": "Create and edit optical simulation projects using conversational instructions. Explore example systems, configure light sources, geometry, materials, detectors, and cameras, run physics-based ray tracing, and inspect detector maps, camera images, and performance analyses. Requires a Luminous Algorithms account.",
+    "developerName": "Luminous Algorithms GmbH",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Help me create and simulate an optical system.",
+      "Show available optical simulation examples.",
+      "Analyze the detector results of my ray trace."
+    ],
+    "websiteURL": "https://luminous-algo.com/mcp/",
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png",
+    "privacyPolicyURL": "https://app.luminous-algo.com/privacy",
+    "termsOfServiceURL": "https://app.luminous-algo.com/terms",
+    "supportURL": "https://luminous-algo.com/#contactform"
+  },
+  "name": "luminous-algorithms",
+  "version": "0.3.3",
+  "description": "Design, simulate, visualize, and analyze optical systems with physics-based ray tracing through Luminous Algorithms.",
+  "author": {
+    "name": "Luminous Algorithms GmbH",
+    "email": "info@luminous-algo.com"
+  },
+  "keywords": [],
+  "homepage": "https://luminous-algo.com",
+  "skills": "./skills",
+  "mcpServers": "./.mcp.json",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "commerce": false,
+        "commerce_description": "Luminous MCP offers a free trial. Paid simulation usage and subscriptions, if needed, are arranged and billed separately on the Luminous Algorithms website. The plugin does not provide checkout, initiate purchases, or process payments."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial public submission draft: optical modeling and ray-tracing MCP integration, company branding, external subscription disclosure, worldwide directory targeting, and review scenarios."
+      }
+    }
+  }
+}

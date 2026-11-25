@@ -1,0 +1,9 @@
+# Built submission packages (create with scripts/build.sh)
+dist/
+*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
