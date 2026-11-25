@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.luminous-algo/luminous-mcp",
+  "title": "Luminous MCP",
+  "description": "AI-driven optical design with fast, generic GPU ray tracing and freeform surfaces",
+  "version": "0.3.3",
+  "websiteUrl": "https://luminous-algo.com/mcp/",
+  "repository": {
+    "url": "https://github.com/luminous-algorithms/mcp_connector",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/luminous-algorithms/mcp_connector/main/assets/icon.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://app.luminous-algo.com/mcp"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ Design, simulate, visualize, and analyze optical systems with physics-based ray 
 
 The connector links an MCP-capable client (Claude, ChatGPT/Codex, Cursor, VS Code and others) to the hosted **Luminous Algorithms** MCP server. You describe an optical system in plain language. The assistant builds the scene, runs the ray trace on Luminous Algorithms' GPUs, and shows you detector maps, camera images and performance analyses.
 
-> Requires a Luminous Algorithms account. A free trial is available at [luminous-algo.com](https://luminous-algo.com/mcp/).
+> Requires a Luminous Algorithms account. A free trial is available at [luminous-algo.com/mcp](https://luminous-algo.com/mcp/).
 
 ## What you can do
 
