@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "com.luminous-algo/luminous-mcp",
-  "title": "Luminous MCP",
-  "description": "AI-driven optical design with fast, generic GPU ray tracing and freeform surfaces",
-  "version": "0.3.3",
+  "name": "com.luminous-algo/luminous-mcp-optical-engineering-raytracing",
+  "title": "Luminous MCP - Optical Engineering & Ray Tracing",
+  "description": "Optical engineering for AI agents: generic GPU ray tracing, freeform surface design, CAD export",
+  "version": "0.3.4",
   "websiteUrl": "https://luminous-algo.com/mcp/",
   "repository": {
     "url": "https://github.com/luminous-algorithms/mcp_connector",
